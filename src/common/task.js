@@ -46,7 +46,7 @@ class Task{
 
         //console.log(`pos is ${newPos}`)
         this.actions.map(el => el(newPos))
- 
+        //console.log(`actions length ${this.actions.length}`)
         if(!this.repeat) this.done = true
 
     }
@@ -84,6 +84,7 @@ class Task{
             const task = this.tasks.find(el => {
                 if(el.count < el.timer) {
                     el.count += driver.GetStep()
+                    console.log(`count: ${el.count}  timer: ${el.timer}`)
                     return false
                 }
                 return driver.FindImgPos(el.pictrue,this.skip)
